@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import '../widgets/destination_carousel.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -24,8 +25,8 @@ class _HomeScreenState extends State<HomeScreen> {
           print(index);
         },
         child: Container(
-          height: 60,
-          width: 60,
+          height: 50,
+          width: 50,
           decoration: BoxDecoration(
               color:  _selectedIndex==index?Theme
                   .of(context)
@@ -33,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
               borderRadius: BorderRadius.circular(30.0)),
           child: Icon(
             _icons[index],
-            size: 30,
+            size: 25,
             color: Theme
                 .of(context)
                 .primaryColor,
@@ -56,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               ),
             ),
-            SizedBox(height: 25),
+            SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: _icons
@@ -65,11 +66,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   .map((var map) => _iconWidget(map.key))
                   .toList(),
             ),
-            Column(
-              children: <Widget>[
-                Row()
-              ],
-            )
+            SizedBox(height: 10,),
+            DestinationCarousel(),
           ],
         ),
       ),
