@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../models/destination_model.dart';
 
 class DestinationCarousel extends StatelessWidget {
@@ -83,7 +84,7 @@ class DestinationCarousel extends StatelessWidget {
                         boxShadow: [
                           BoxShadow(
                             color: Colors.black26,
-                            offset: Offset(0.0,2.0),
+                            offset: Offset(8.0,8.0),
                             blurRadius: 6.0
                           )
                         ]
@@ -98,7 +99,41 @@ class DestinationCarousel extends StatelessWidget {
                               image: AssetImage(destinations[index].imageUrl),
                               fit: BoxFit.cover,
                             )
-                         )
+                         ),
+                          Positioned(
+                            bottom: 10,
+                            left: 10,
+                            child: Container(
+                              child: Column(
+                                children: <Widget>[
+                                  Text("${destinations[index].city}",style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white,
+                                    letterSpacing:0.5
+                                  ),),
+                                  Row(
+                                    children: <Widget>[
+                                      Padding(
+                                        padding: EdgeInsets.all(1.0),
+                                        child: Icon(
+                                          FontAwesomeIcons.locationArrow,
+                                          size:10,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      Text("${destinations[index].country}",style: TextStyle(
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.normal,
+                                          color: Colors.white,
+                                          letterSpacing:0.5
+                                      ),),
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ),
+                          )
                         ],
                       ),
                     )
